@@ -1,5 +1,9 @@
 package com.fxp.mvp;
 
+import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
+
 /**
  * Title:       MyApplication
  * <p>
@@ -20,5 +24,35 @@ package com.fxp.mvp;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class MyApplication {
+public class MyApplication extends MultiDexApplication {
+
+    public static MyApplication mInstance;
+
+    public static MyApplication getmInstance() {
+        return mInstance;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mInstance = this;
+
+    }
+
+    /**
+     * 处理 android 方法总数超过 65536
+     *
+     * @param base
+     */
+    @Override
+    public void attachBaseContext(Context base) {
+        MultiDex.install(base);
+        super.attachBaseContext(base);
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+    }
+
 }
