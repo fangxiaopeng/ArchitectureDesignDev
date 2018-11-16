@@ -45,7 +45,21 @@ public abstract class BaseActivity<T extends BasePresenter, M extends BaseModel>
 
         //使得P层绑定M层和V层，持有M和V的引用
         mPresenter.attachModelView(mModel, this);
+
+        initData();
+
+        initView();
+
+        initListener();
     }
+
+    protected abstract void initData();
+
+    protected abstract void initView();
+
+    protected abstract void initListener();
+
+    public abstract int getLayoutResId();
 
     @Override
     protected void onDestroy() {
@@ -55,8 +69,4 @@ public abstract class BaseActivity<T extends BasePresenter, M extends BaseModel>
             mPresenter.unDisposable();
         }
     }
-
-    //子类Activity实现
-    public abstract int getLayoutResId();
-
 }

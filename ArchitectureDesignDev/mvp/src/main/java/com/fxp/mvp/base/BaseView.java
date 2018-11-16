@@ -21,4 +21,10 @@ package com.fxp.mvp.base;
  * Github:  https://github.com/fangxiaopeng
  */
 public interface BaseView {
+
+    void showLoading();
+
+    void hideLoading();
+
+    void showError();
 }
