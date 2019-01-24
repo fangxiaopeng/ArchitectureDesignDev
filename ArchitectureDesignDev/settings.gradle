@@ -1,1 +1,2 @@
-include ':app', ':mvp', ':mvvm'
+include ':app', ':mvp'
+include ':mvvm:contact-core', ':mvvm:contact-ui'
