@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
 
+// 使用greendao(1/4)：引入greendao
+apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -12,6 +15,7 @@ android {
 
     }
 
+    // 配置dataBinding(1/1)
     dataBinding {
         enabled = true
     }
@@ -23,6 +27,26 @@ android {
         }
     }
 
+    // 使用greendao(4/4)：配置数据库版本、文件目录路径
+    greendao {
+        // 指定数据库schema版本号，迁移等操作会用到
+        schemaVersion 1
+        // 设置DaoSession、DaoMaster以及所有实体类的dao生成的目录
+        daoPackage 'com.fxp.contact.core.greendao.gen'
+        // 工程路径。自定义生成数据库文件的目录，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了
+        targetGenDir 'src/main/java'
+    }
+
+}
+
+// 使用greendao(2/4)：配置远程仓库、插件依赖
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
+    }
 }
 
 dependencies {
@@ -32,4 +56,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // 使用greendao(3/4)：添加greendao库依赖
+    implementation 'org.greenrobot:greendao:3.2.0'
 }
