@@ -58,5 +58,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // 使用greendao(3/4)：添加greendao库依赖
-    implementation 'org.greenrobot:greendao:3.2.0'
+    api 'org.greenrobot:greendao:3.2.2'
+    api 'org.greenrobot:greendao-generator:3.2.2'
+
+    // 使用数据库加密时添加
+    api 'net.zetetic:android-database-sqlcipher:3.5.6'
+
+    // 使用数据库升级辅助GreenDaoUpgradeHelper时添加
+//    api 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0'
 }
