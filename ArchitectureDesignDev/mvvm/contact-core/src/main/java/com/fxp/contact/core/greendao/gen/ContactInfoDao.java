@@ -51,6 +51,25 @@ public class ContactInfoDao extends AbstractDao<ContactInfo, String> {
         this.daoSession = daoSession;
     }
 
+    /** Creates the underlying database table. */
+    public static void createTable(Database db, boolean ifNotExists) {
+        String constraint = ifNotExists? "IF NOT EXISTS ": "";
+        db.execSQL("CREATE TABLE " + constraint + "\"CONTACT_INFO\" (" + //
+                "\"CONTACT_ID\" TEXT PRIMARY KEY NOT NULL ," + // 0: contactId
+                "\"NAME\" TEXT NOT NULL ," + // 1: name
+                "\"job\" TEXT," + // 2: job
+                "\"ADRESS\" TEXT);"); // 3: adress
+        // Add Indexes
+        db.execSQL("CREATE UNIQUE INDEX " + constraint + "IDX_CONTACT_INFO_CONTACT_ID_DESC ON CONTACT_INFO" +
+                " (\"CONTACT_ID\" DESC);");
+    }
+
+    /** Drops the underlying database table. */
+    public static void dropTable(Database db, boolean ifExists) {
+        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"CONTACT_INFO\"";
+        db.execSQL(sql);
+    }
+
     @Override
     protected final void bindValues(DatabaseStatement stmt, ContactInfo entity) {
         stmt.clearBindings();
