@@ -1,5 +1,13 @@
 package com.fxp.contact.core.entity;
 
+import com.fxp.contact.core.greendao.gen.BankCardInfoDao;
+import com.fxp.contact.core.greendao.gen.ContactInfoDao;
+import com.fxp.contact.core.greendao.gen.DaoSession;
+import com.fxp.contact.core.greendao.gen.HobbyInfoDao;
+import com.fxp.contact.core.greendao.gen.IDCardInfoDao;
+import com.fxp.contact.core.greendao.gen.PhoneNumInfoDao;
+
+import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
@@ -14,13 +22,6 @@ import org.greenrobot.greendao.annotation.Transient;
 
 import java.io.Serializable;
 import java.util.List;
-import org.greenrobot.greendao.DaoException;
-import com.fxp.contact.core.greendao.gen.DaoSession;
-import com.fxp.contact.core.greendao.gen.HobbyInfoDao;
-import com.fxp.contact.core.greendao.gen.BankCardInfoDao;
-import com.fxp.contact.core.greendao.gen.PhoneNumInfoDao;
-import com.fxp.contact.core.greendao.gen.IDCardInfoDao;
-import com.fxp.contact.core.greendao.gen.ContactInfoDao;
 
 /**
  * Title:       ContactInfo
@@ -67,7 +68,7 @@ import com.fxp.contact.core.greendao.gen.ContactInfoDao;
         /**
          * 标记是否创建表，默认 true。多实体对应一个表或者表已创建，不需要 greenDAO 创建时设置 false
         */
-        createInDb = false,
+        createInDb = true,
         /**
          * 是否产生所有参数构造器。默认为 true。无参构造器必定产生
         */
@@ -147,6 +148,20 @@ public class ContactInfo implements Serializable{
      */
     @Transient
     private String email;
+
+    @Override
+    public String toString() {
+        return "ContactInfo{" +
+                "contactId='" + contactId + '\'' +
+                ", name='" + name + '\'' +
+                ", job='" + job + '\'' +
+                ", adress='" + adress + '\'' +
+                ", idCardInfo=" + getIdCardInfo() +
+                ", phoneNumInfos=" + getPhoneNumInfos() +
+                ", bankCardInfos=" + getBankCardInfos() +
+                ", hobbyInfos=" + getHobbyInfos() +
+                '}';
+    }
 
 /** Used to resolve relations */
 @Generated(hash = 2040040024)
