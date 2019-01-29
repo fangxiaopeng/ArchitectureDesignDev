@@ -24,6 +24,7 @@ public class DaoMaster extends AbstractDaoMaster {
         PhoneNumInfoDao.createTable(db, ifNotExists);
         ContactAndHobbyDao.createTable(db, ifNotExists);
         BankCardInfoDao.createTable(db, ifNotExists);
+        ContactInfoDao.createTable(db, ifNotExists);
         HobbyInfoDao.createTable(db, ifNotExists);
         IDCardInfoDao.createTable(db, ifNotExists);
     }
@@ -33,6 +34,7 @@ public class DaoMaster extends AbstractDaoMaster {
         PhoneNumInfoDao.dropTable(db, ifExists);
         ContactAndHobbyDao.dropTable(db, ifExists);
         BankCardInfoDao.dropTable(db, ifExists);
+        ContactInfoDao.dropTable(db, ifExists);
         HobbyInfoDao.dropTable(db, ifExists);
         IDCardInfoDao.dropTable(db, ifExists);
     }
