@@ -1,6 +1,12 @@
 package com.fxp.contact.core.entity;
 
+import com.fxp.contact.core.greendao.gen.ContactInfoDao;
+import com.fxp.contact.core.greendao.gen.DaoSession;
+import com.fxp.contact.core.greendao.gen.HobbyInfoDao;
+
+import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.JoinEntity;
 import org.greenrobot.greendao.annotation.NotNull;
@@ -8,11 +14,6 @@ import org.greenrobot.greendao.annotation.ToMany;
 
 import java.io.Serializable;
 import java.util.List;
-import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.DaoException;
-import com.fxp.contact.core.greendao.gen.DaoSession;
-import com.fxp.contact.core.greendao.gen.ContactInfoDao;
-import com.fxp.contact.core.greendao.gen.HobbyInfoDao;
 
 /**
  * Title:       HobbyInfo
@@ -49,6 +50,15 @@ public class HobbyInfo implements Serializable {
     @ToMany
     @JoinEntity(entity = ContactAndHobby.class, sourceProperty = "hobbyId",targetProperty = "contactId")
     private List<ContactInfo> contactInfos;
+
+    @Override
+    public String toString() {
+        return "HobbyInfo{" +
+                "hobbyId='" + hobbyId + '\'' +
+                ", hobbyName='" + hobbyName + '\'' +
+                ", contactInfos=" + getContactInfos() +
+                '}';
+    }
 
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
