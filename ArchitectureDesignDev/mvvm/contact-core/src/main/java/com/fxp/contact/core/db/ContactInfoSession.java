@@ -2,6 +2,8 @@ package com.fxp.contact.core.db;
 
 import android.content.Context;
 
+import com.fxp.contact.core.entity.ContactInfo;
+
 /**
  * Title:       ContactInfoSession
  * <p>
@@ -43,5 +45,8 @@ public class ContactInfoSession {
         return instance;
     }
 
-    
+    public synchronized boolean  insert(ContactInfo contactInfo) {
+
+        return false;
+    }
 }
