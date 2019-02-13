@@ -3,8 +3,9 @@ package com.fxp.contact.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.fxp.contact.core.base.BaseActivity;
 import com.fxp.contact.core.mvvm.viewmodel.ContactVM;
+import com.fxp.contact.ui.R;
+import com.fxp.contact.ui.databinding.ActivityContactBinding;
 
 /**
  * Title:       ContactActivity
@@ -27,7 +28,16 @@ import com.fxp.contact.core.mvvm.viewmodel.ContactVM;
  * Github:  https://github.com/fangxiaopeng
  */
 public class ContactActivity extends BaseActivity<ContactVM, ActivityContactBinding> {
-//public class ContactActivity extends AppCompatActivity{
+
+    @Override
+    int getLayoutId() {
+        return R.layout.activity_contact;
+    }
+
+    @Override
+    ContactVM setViewModel() {
+        return new ContactVM();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
