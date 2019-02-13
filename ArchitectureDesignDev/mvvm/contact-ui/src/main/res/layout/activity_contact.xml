@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.fxp.contact.ui.activity.ContactActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable name="viewModel" type="com.fxp.contact.core.mvvm.viewmodel.ContactVM"/>
@@ -10,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context="com.fxp.contact.ui.activity.ContactActivity">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_main"
