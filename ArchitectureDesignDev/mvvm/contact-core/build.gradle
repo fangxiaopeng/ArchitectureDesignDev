@@ -57,6 +57,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    api 'com.android.support:recyclerview-v7:27.1.1'
+
     // 使用greendao(3/4)：添加greendao库依赖
     api 'org.greenrobot:greendao:3.2.2'
     api 'org.greenrobot:greendao-generator:3.2.2'
