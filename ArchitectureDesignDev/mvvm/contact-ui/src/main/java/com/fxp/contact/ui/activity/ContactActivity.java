@@ -3,6 +3,7 @@ package com.fxp.contact.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.fxp.contact.core.mvvm.view.IContactNavigator;
 import com.fxp.contact.core.mvvm.viewmodel.ContactVM;
 import com.fxp.contact.ui.R;
 import com.fxp.contact.ui.databinding.ActivityContactBinding;
@@ -27,7 +28,7 @@ import com.fxp.contact.ui.databinding.ActivityContactBinding;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class ContactActivity extends BaseActivity<ContactVM, ActivityContactBinding> {
+public class ContactActivity extends BaseActivity<ContactVM, ActivityContactBinding> implements IContactNavigator {
 
     @Override
     int getLayoutId() {
@@ -42,6 +43,21 @@ public class ContactActivity extends BaseActivity<ContactVM, ActivityContactBind
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void loadStart(int loadType) {
+
+    }
+
+    @Override
+    public void loadComplete() {
+
+    }
+
+    @Override
+    public void loadFailure(String message) {
 
     }
 }
