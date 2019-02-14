@@ -22,20 +22,6 @@ import com.fxp.contact.core.base.IBaseView;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class IContactNavigator implements IBaseView {
+public interface IContactNavigator extends IBaseView {
 
-    @Override
-    public void loadStart(int loadType) {
-
-    }
-
-    @Override
-    public void loadComplete() {
-
-    }
-
-    @Override
-    public void loadFailure(String message) {
-
-    }
 }
