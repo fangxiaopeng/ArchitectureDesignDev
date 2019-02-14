@@ -44,6 +44,7 @@ public class ContactActivity extends BaseActivity<ContactVM, ActivityContactBind
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mBindView.setViewModel(mViewModel);
     }
 
     @Override
