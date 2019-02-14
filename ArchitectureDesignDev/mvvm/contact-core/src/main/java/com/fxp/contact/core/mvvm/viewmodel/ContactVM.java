@@ -29,6 +29,10 @@ public class ContactVM implements BaseLoadListener<ContactInfo> {
 
     public ContactVM(){}
 
+    public void init(){
+
+    }
+
     @Override
     public void loadSuccess(List<ContactInfo> list) {
 
