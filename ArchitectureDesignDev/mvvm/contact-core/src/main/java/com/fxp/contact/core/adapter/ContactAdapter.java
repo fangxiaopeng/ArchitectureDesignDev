@@ -1,10 +1,12 @@
 package com.fxp.contact.core.adapter;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.view.ViewGroup;
 
+import com.fxp.contact.core.adapter.holder.ContactViewHolder;
 import com.fxp.contact.core.base.BaseAdapter;
-import com.fxp.contact.core.base.BaseViewHolder;
 import com.fxp.contact.core.entity.ContactInfo;
 
 /**
@@ -27,19 +29,24 @@ import com.fxp.contact.core.entity.ContactInfo;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class ContactAdapter extends BaseAdapter<ContactInfo, BaseViewHolder>{
+public class ContactAdapter extends BaseAdapter<ContactInfo, ContactViewHolder>{
 
-    public ContactAdapter(Context context) {
+    private int layoutId;
+
+    public ContactAdapter(Context context, int layoutId) {
         super(context);
+        this.layoutId = layoutId;
     }
 
     @Override
-    public BaseViewHolder onCreateVH(ViewGroup parent, int viewType) {
-        return null;
+    public ContactViewHolder onCreateVH(ViewGroup parent, int viewType) {
+        ViewDataBinding dataBinding = DataBindingUtil.inflate(inflater, layoutId, parent, false);
+
+        return new ContactViewHolder(dataBinding);
     }
 
     @Override
-    public void onBindVH(BaseViewHolder baseViewHolder, int position) {
+    public void onBindVH(ContactViewHolder contactViewHolder, int position) {
 
     }
 }
